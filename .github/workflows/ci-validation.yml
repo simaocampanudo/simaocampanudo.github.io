@@ -19,8 +19,14 @@ jobs:
         with:
           node-version: "22"
 
+      - name: Install dependencies
+        run: npm ci
+
       - name: Validate HTML
-        run: npx --yes htmlhint "**/*.html"
+        run: npx htmlhint "**/*.html"
 
       - name: Check formatting
-        run: npx --yes prettier --check "**/*.{html,css,js}"
+        run: npx prettier --check "**/*.{html,css,js}"
+
+      - name: Run unit tests
+        run: npm test
