@@ -1,0 +1,26 @@
+name: CI with Continuous Validation
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  validation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Validate HTML
+        run: npx --yes htmlhint "**/*.html"
+
+      - name: Check formatting
+        run: npx --yes prettier --check "**/*.{html,css,js}"
