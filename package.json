@@ -2,9 +2,11 @@
   "name": "personal-website",
   "version": "1.0.0",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "docs": "jsdoc src -d docs"
   },
   "devDependencies": {
-    "jest": "^30.0.0"
+    "jest": "^30.0.0",
+    "jsdoc": "^4.0.5"
   }
 }
